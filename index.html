@@ -210,6 +210,50 @@
       .hero-horizontal-stack { flex-direction: column; }
       .hero-main, .section-right { padding-left: 0; }
     }
+        /* ---------- Projects: bigger, centered cards w/ full-height image ---------- */
+    
+    /* Widen the right column only for the Projects section */
+    #projects .container{
+      grid-template-columns: var(--left-column-width) 900px; /* was 600px */
+      max-width: calc(var(--left-column-width) + 900px + var(--gap) + 40px);
+    }
+    
+    /* Center cards inside the right column */
+    #projects .section-right{
+      align-items: center;                /* center children horizontally */
+      gap: 1.75rem;                       /* a bit more space between cards */
+      padding-left: 0;                    /* flush with column edge */
+    }
+    
+    /* Larger card + image column, full-height image */
+    #projects .project-card{
+      width: 100%;
+      max-width: 900px;                   /* keep a nice readable line length */
+      grid-template-columns: 360px 1fr;   /* bigger image column (was 180px) */
+      gap: 1.25rem;
+      padding: 1.25rem;
+      border-radius: 14px;
+      align-items: stretch;               /* let items match card height */
+    }
+    #projects .project-thumb{
+      width: 100%;
+      height: 100%;                       /* stretch from top to bottom */
+      object-fit: cover;                  /* crop nicely to fill the cell */
+      border-radius: 12px;
+    }
+    
+    /* Slightly larger text inside cards */
+    #projects .project-title{ font-size: 1.3rem; }
+    #projects .project-summary{ font-size: 1.05rem; }
+    
+    /* Mobile: stack and use a fixed-height thumb so it's not too tall */
+    @media (max-width: 768px){
+      #projects .container{ grid-template-columns: 1fr; max-width: 720px; }
+      #projects .section-right{ align-items: stretch; }
+      #projects .project-card{ grid-template-columns: 1fr; max-width: 100%; }
+      #projects .project-thumb{ height: 240px; } /* hero-like banner on phones */
+    }
+
 
   </style>
 </head>
@@ -429,6 +473,7 @@
   
 </body>
 </html>
+
 
 
 
