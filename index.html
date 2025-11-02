@@ -254,6 +254,25 @@
       #projects .project-thumb{ height: 240px; } /* hero-like banner on phones */
     }
 
+        /* ---------- Projects: alignment tweak ---------- */
+    /* Nudge the cards downward so they don't crowd the left header */
+    #projects .section-right {
+      margin-top: 0.6rem;   /* try 0.4–1.2rem to taste */
+    }
+    
+    /* Keep the left label tidy (optional) */
+    #projects .section-left h2 { margin: 0; }
+    #projects .section-left p  { margin: 0.25rem 0 0 0; }
+    
+    /* If you only want to drop the first card instead of all cards: */
+    /* #projects .project-card:first-child { margin-top: 0.6rem; } */
+    
+    /* Mobile: keep a smaller offset so spacing doesn't balloon */
+    @media (max-width: 768px){
+      #projects .section-right { margin-top: 0.3rem; }
+    }
+
+
 
   </style>
 </head>
@@ -473,6 +492,7 @@
   
 </body>
 </html>
+
 
 
 
