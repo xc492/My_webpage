@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qiyuan Wu</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --text-color: #333;
+      --bg-color: #fff;
+      --left-column-width: 200px;
+      --right-column-width: 600px;
+      --gap: 4rem;
+      --right-column-padding: 1rem;
+      --base-font-size: 1.05rem; /* slightly larger base font */
+      --heading-font-size: 1.6rem; /* slightly larger h2 */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: var(--base-font-size);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background-color: #faf8f3;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 0.5rem 20px;
+      box-sizing: border-box;
+      font-size: 1rem; /* keep navbar unchanged */
+    }
+
+    .navbar {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .navbar-nav.left-nav {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .mode-toggle {
+      margin-left: auto;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    /* ---------- Grid Container ---------- */
+    .container {
+      display: grid;
+      grid-template-columns: var(--left-column-width) var(--right-column-width);
+      gap: var(--gap);
+      max-width: calc(var(--left-column-width) + var(--right-column-width) + var(--gap) + 40px);
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    /* ---------- Left Column ---------- */
+    .avatar-section, .section-left {
+      text-align: center;
+    }
+
+    .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; }
+    .hero-name { font-size: 1.7rem; font-weight: bold; margin-top: 0.5rem; } /* slightly bigger */
+    .hero-title { font-size: 1.1rem; color: var(--secondary-color); }
+    .social-icons { margin-top: 0.5rem; }
+    .social-icons a { margin: 0 0.3rem; color: var(--text-color); font-size:1.3rem; transition: color 0.3s; }
+    .social-icons a:hover { color: var(--primary-color); }
+    .social-icons a {
+      text-decoration: none;
+    }
+
+
+    /* ---------- Right Column ---------- */
+    .hero-main, .section-right {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      padding-left: var(--right-column-padding);
+      font-size: var(--base-font-size);
+    }
+
+    .hero-content h2 { margin-top:0; margin-bottom:0.5rem; font-size: var(--heading-font-size); }
+    .news-container { margin-top:0.5rem; }
+    .news-item { margin-bottom:0.5rem; }
+    .news-date { font-weight:bold; margin-right:0.5rem; }
+
+    /* Side-by-side within right column */
+    .hero-horizontal-stack {
+      display: flex;
+      gap: var(--gap);
+      flex-wrap: wrap;
+    }
+    .hero-horizontal-stack > div { flex: 1; min-width: calc(50% - var(--gap)/2); }
+
+    /* ---------- Hero Section ---------- */
+    .page-hero { background-color: #fdfcf9; width:100%; padding:50px 0; }
+    .education-list {
+      list-style: none; /* remove default bullets */
+      padding-left: 0;
+    }
+    
+    .education-list li {
+      margin: 8px 0;
+    }
+    
+    .education-list li i {
+      margin-right: 8px;
+      color: #444; /* pick a color you like */
+    }
+
+    /* ---------- Publications Section ---------- */
+    .section { background-color:#fff; padding:50px 0; }
+    .section-left h2 { margin:0; font-size: var(--heading-font-size); }
+    .section-left p { font-size:1rem; color: var(--secondary-color); margin-top:0.3rem; }
+    .publication { margin-bottom:1rem; }
+    .publication-title { font-weight:bold; font-size:1.1rem; }
+    .publication-authors { font-style: italic; font-size:1rem; }
+
+    /* ---------- Responsive ---------- */
+    @media(max-width:768px){
+      .container { grid-template-columns: 1fr; padding:0 10px; }
+      .avatar-section, .section-left { text-align:center; }
+      .hero-horizontal-stack { flex-direction: column; }
+      .hero-main, .section-right { padding-left: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Qiyuan Wu</a>
+    <ul class="navbar-nav left-nav">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#publications" class="nav-link">Publications</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+    </ul>
+    <button class="mode-toggle">🌙</button>
+  </nav>
+</header>
+
+<main class="page-wrapper">
+
+  <!-- Hero Section -->
+  <div class="page-hero" id="about">
+    <div class="container">
+      <div class="avatar-section">
+        <img src="img/profile.png" alt="Qiyuan Wu" class="avatar">
+        <div class="hero-name">Qiyuan Wu</div>
+        <div class="hero-title">Ph.D. Student @ Cornell University</div>
+        <div class="social-icons">
+          <a href="mailto:qw253@cornell.edu" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://github.com/wu-qiyuan" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=cr4F75YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-graduation-cap"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/qiyuan265/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-main">
+        <div>
+          <h2>About Me</h2>
+          <p>I am a PhD student at the Cornell University Autonomous Systems Lab, advised by Profs. 
+            <a href="https://www.engineering.cornell.edu/people/mark-campbell/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">
+                  Mark Campbell
+                </a>, Kilian Weinberger, and Bharath Hariharan.
+            I obtained my Bachelor's degree at Shanghai Jiao Tong University, and Master's degree at the Johns Hopkins University advised by Prof. 
+            <a href="https://imerse.lcsr.jhu.edu/#professor" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">
+                  Axel Krieger
+                </a>.
+            My research interest lies in perception and prediction for self-driving, particularly problems related to uncertainty quantification and reasoning of deep learning.
+          </p>
+          <p>
+            Before joining Cornell University, I had the pleasure of working on a variety of topics including scientific computing, medical robotics, and computer vision.
+            View my professional summary <a href="CV_QiyuanWu_Aug25.pdf" target="_blank">here</a>.
+          </p>
+          <p>
+            My recent focus include visual localization, trajectory generation, and language-guided planning and prediction.
+          </p>
+
+          <h2>News</h2>
+          <div class="news-container">
+            <div class="news-item">
+              <div class="news-date">[May 2025]</div>
+              <div class="news-content">Presented our work
+                <a href="https://arxiv.org/abs/2506.15851" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">
+                  Semantic and Feature Guided Uncertainty Quantification of Visual Localization for Autonomous Vehicles
+                </a> at ICRA 2025 in Atlanta, USA.</div>
+            </div>
+            <div class="news-item">
+              <div class="news-date">[May 2025]</div>
+              <div class="news-content">Presented
+                at Sibley Graduate Research Symposium (SGRS).</div>
+            </div>
+            <div class="news-item">
+              <div class="news-date">[May 2024]</div>
+              <div class="news-content">Passed the qualifying exam (Q-exam).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-horizontal-stack">
+          <div>
+            <h2>Interests</h2>
+            <li>Autonomous Driving</li>
+            <li>Deep Learning</li>
+            <li>Computer Vision</li>
+            <li>Uncertainty Quantification</li>
+          </div>
+          <div>
+            <h2>Education</h2>
+            <ul class="education-list">
+              <li><i class="fas fa-graduation-cap"></i> M.Sc. in Mechanical Engineering, Johns Hopkins University</li>
+              <li><i class="fas fa-graduation-cap"></i> B.S. in Engineering Mechanics, Shanghai Jiao Tong University</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publications Section -->
+  <div class="section" id="publications">
+    <div class="container">
+      <div class="section-left">
+        <h2>Publications</h2>
+<!--         <p>(* indicates equal contribution)</p> -->
+      </div>
+      <div class="section-right">
+        <div class="publication">
+          <div class="publication-title">Semantic and Feature Guided Uncertainty Quantification of Visual Localization for Autonomous Vehicles</div>
+          <div class="publication-authors">Qiyuan Wu, Mark Campbell</div>
+          <div class="publication-venue">ICRA 2025</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Virtual planning and patient-specific Graft Design for aortic repairs</div>
+          <div class="publication-authors">Seda Aslan, Xiaolong Liu, Qiyuan Wu, Paige Mass, Yue-Hin Loke, Jed Johnson, Joey Huddle, Laura Olivieri, Narutoshi Hibino, Axel Krieger</div>
+          <div class="publication-venue">Cardiovascular engineering and technology</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">In vitro investigation of axial mechanical support devices implanted in the novel convergent cavopulmonary connection Fontan</div>
+          <div class="publication-authors">Vincent Cleveland, Jacqueline Contento, Paige Mass, Priyanka Hardikar, Qiyuan Wu, Xiaolong Liu, Seda Aslan, Yue-Hin Loke, Axel Krieger, Scott Lunos, Laura Olivieri, Pranava Sinha</div>
+          <div class="publication-venue">European Journal of Cardio-Thoracic Surgery</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">The convergent cavopulmonary connection: A novel and efficient configuration of Fontan to accommodate mechanical support</div>
+          <div class="publication-authors">Pranava Sinha, Jacqueline Contento, Byeol Kim, Kevin Wang, Qiyuan Wu, Vincent Cleveland, Paige Mass, Yue-Hin Loke, Axel Krieger, Laura Olivieri</div>
+          <div class="publication-venue">JTCVS open</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">AN AUTOMATED SYSTEM FOR GEOMETRIC DESIGN AND HEMODYNAMIC SIMULATION OF AORTIC REPAIR</div>
+          <div class="publication-authors">Qiyuan Wu</div>
+          <div class="publication-venue">Johns Hopkins University Thesis</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Hemodynamics of Convergent Cavopulmonary Connection with Ventricular Assist Device for Fontan Surgery: A Computational and Experimental Study</div>
+          <div class="publication-authors">Qiyuan Wu, Vincent Cleveland, Seda Aslan, Xiaolong Liu, Jacqueline Contento, Paige Mass, Byeol Kim, Catherine Pollard, Pranava Sinha, Yue-Hin Loke, Laura Olivieri, Axel Krieger</div>
+          <div class="publication-venue">BIOINFORMATICS 2023</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Re-Imagining Fontan Support: Novel Cavopulmonary Connection Can Accommodate Mechanical Circulatory Support, Augment Cardiac Output and Balance Hepatic Flow</div>
+          <div class="publication-authors">Priyanka Hardikar, Vincent Cleveland, Jacqueline Contento, Paige Mass, Qiyuan Wu, Yue-Hin Loke, Axel Krieger, Pranava Sinha, Laura Olivieri</div>
+          <div class="publication-venue">Circulation</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Slippery omniphobic covalently attached liquid coatings mitigate carbon deposition by autoxidation of jet fuel</div>
+          <div class="publication-authors">Siavash Khodakarami, Hanyang Zhao, Kazi Fazle Rabbi, Qiyuan Wu, Jingcheng Ma, Nenad Miljkovic</div>
+          <div class="publication-venue">Cell Reports Physical Science</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Comparison of algorithms for estimating blood flow velocities in cerebral arteries based on the transport information of contrast agent: An in silico study</div>
+          <div class="publication-authors">Qiyuan Wu, Yuri Vassilevski, Sergey Simakov, Fuyou Liang</div>
+          <div class="publication-venue">Computers in biology and medicine</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Virtual planning and simulation of coarctation repair in hypoplastic aortic arches: is fixing the coarctation alone enough?</div>
+          <div class="publication-authors">Seda Aslan, Xiaolong Liu, Qiyuan Wu, Paige Mass, Yue-Hin Loke, Narutoshi Hibino, Laura Olivieri, Axel Krieger</div>
+          <div class="publication-venue">Bioinformatics 2022</div>
+        </div>
+        <div class="publication">
+          <div class="publication-title">Scalable slippery omniphobic covalently attached liquid coatings for flow fouling reduction</div>
+          <div class="publication-authors">Hanyang Zhao, Siavash Khodakarami, Chirag Anand Deshpande, Jingcheng Ma, Qiyuan Wu, Soumyadip Sett, Nenad Miljkovic</div>
+          <div class="publication-venue">ACS applied materials & interfaces</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Qiyuan Wu</p>
+</footer>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
