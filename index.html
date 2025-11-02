@@ -210,66 +210,52 @@
       .hero-horizontal-stack { flex-direction: column; }
       .hero-main, .section-right { padding-left: 0; }
     }
-        /* ---------- Projects: bigger, centered cards w/ full-height image ---------- */
-    
-    /* Widen the right column only for the Projects section */
+  
+        /* --- Projects: title ABOVE cards (stacked layout) --- */
     #projects .container{
-      grid-template-columns: var(--left-column-width) 900px; /* was 600px */
-      max-width: calc(var(--left-column-width) + 900px + var(--gap) + 40px);
+      grid-template-columns: 1fr;     /* collapse to single column */
+      max-width: 1100px;              /* widen the section; tweak 1000–1200px */
     }
     
-    /* Center cards inside the right column */
+    #projects .section-left{
+      text-align: left;
+      margin-bottom: 1rem;            /* space under the “Projects” heading */
+    }
+    
     #projects .section-right{
-      align-items: center;                /* center children horizontally */
-      gap: 1.75rem;                       /* a bit more space between cards */
-      padding-left: 0;                    /* flush with column edge */
+      align-items: center;            /* center the big cards */
+      padding-left: 0;
+      margin-top: 0;                  /* no vertical offset needed now */
     }
     
-    /* Larger card + image column, full-height image */
+    /* Big, centered cards with full-height image */
     #projects .project-card{
       width: 100%;
-      max-width: 900px;                   /* keep a nice readable line length */
-      grid-template-columns: 360px 1fr;   /* bigger image column (was 180px) */
+      max-width: 1100px;              /* match container width */
+      grid-template-columns: 460px 1fr; /* image | text; tweak 420–520px */
       gap: 1.25rem;
       padding: 1.25rem;
       border-radius: 14px;
-      align-items: stretch;               /* let items match card height */
+      align-items: stretch;           /* image & text same height */
     }
+    
     #projects .project-thumb{
       width: 100%;
-      height: 100%;                       /* stretch from top to bottom */
-      object-fit: cover;                  /* crop nicely to fill the cell */
+      height: 100%;
+      object-fit: cover;
       border-radius: 12px;
     }
     
-    /* Slightly larger text inside cards */
-    #projects .project-title{ font-size: 1.3rem; }
-    #projects .project-summary{ font-size: 1.05rem; }
+    /* Slightly larger text in cards (optional) */
+    #projects .project-title{ font-size: 1.35rem; }
+    #projects .project-summary{ font-size: 1.08rem; }
     
-    /* Mobile: stack and use a fixed-height thumb so it's not too tall */
+    /* Mobile */
     @media (max-width: 768px){
       #projects .container{ grid-template-columns: 1fr; max-width: 720px; }
       #projects .section-right{ align-items: stretch; }
       #projects .project-card{ grid-template-columns: 1fr; max-width: 100%; }
-      #projects .project-thumb{ height: 240px; } /* hero-like banner on phones */
-    }
-
-        /* ---------- Projects: alignment tweak ---------- */
-    /* Nudge the cards downward so they don't crowd the left header */
-    #projects .section-right {
-      margin-top: 0.6rem;   /* try 0.4–1.2rem to taste */
-    }
-    
-    /* Keep the left label tidy (optional) */
-    #projects .section-left h2 { margin: 0; }
-    #projects .section-left p  { margin: 0.25rem 0 0 0; }
-    
-    /* If you only want to drop the first card instead of all cards: */
-    /* #projects .project-card:first-child { margin-top: 0.6rem; } */
-    
-    /* Mobile: keep a smaller offset so spacing doesn't balloon */
-    @media (max-width: 768px){
-      #projects .section-right { margin-top: 0.3rem; }
+      #projects .project-thumb{ height: 240px; }
     }
 
 
@@ -465,7 +451,7 @@
 
       <!-- Project 3 -->
       <article class="project-card">
-        <img src="profile.png" alt="Exosomal RNA assay cartridge" class="project-thumb" loading="lazy">
+        <img src="img/profile.png" alt="Exosomal RNA assay cartridge" class="project-thumb" loading="lazy">
         <div class="project-body">
           <h3 class="project-title">Exosomal RNA Assay on Portable Cartridge</h3>
           <p class="project-summary">
@@ -492,6 +478,7 @@
   
 </body>
 </html>
+
 
 
 
