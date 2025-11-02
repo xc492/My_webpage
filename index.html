@@ -60,6 +60,12 @@
       --right-column-padding: 1rem;
       --base-font-size: 1.05rem; /* slightly larger base font */
       --heading-font-size: 1.6rem; /* slightly larger h2 */
+      --nav-height: 64px;     /* approx sticky header height */
+      --anchor-offset: 72px;  /* a little extra breathing room */
+    }
+
+    #about, #publications, #projects {
+      scroll-margin-top: calc(var(--nav-height) + 8px);
     }
 
     body {
@@ -329,7 +335,6 @@
                   "Loop-Mediated Isothermal Amplification Enables Reliable Kaposi Sarcoma Diagnosis Across Time and Sites in East Africa"
                 </a> to Journal of Medical Virology.</div>
             </div>
-          <div class="news-container">
             <div class="news-item">
               <div class="news-date">[March 2025]</div>
               <div class="news-content">Presented our work
@@ -478,6 +483,7 @@
   
 </body>
 </html>
+
 
 
 
