@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> Qiyuan Personal Page</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Qiyuan" name="keywords">
+        <meta content="Qiyuan" name="description">
+        <style>
+            p{text-align: justify;}
+        </style>
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        
+        <!-- W3 type -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+                <div class="sidebar-text d-flex flex-column h-100 justify-content-start text-center">
+                    <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="img/profile.png" alt="Image">
+                    <h1 class="font-weight-bold">Qiyuan Wu</h1>
+                    <p class="mb-4">
+                        <font size="+0.3">Student at the Johns Hopkins University</font>
+                    </p>
+                    <div class="d-flex justify-content-center mb-5">
+                        <a class="btn btn-outline-primary mr-2" href="https://www.linkedin.com/in/qiyuan265/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="https://github.com/wu-qiyuan"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="d-block justify-content-center mb-5">
+                        <a href="index.html" class="w3-bar-item w3-button"><font size="+1.3">Home</font></a><br>
+                        <a href="about.html" class="w3-bar-item w3-button"><font size="+1.3">About</font></a><br>
+                        <a href="publications.html" class="w3-bar-item w3-button"><font size="+1.3">Publications</font></a><br>
+                        <a href="projects.html" class="w3-bar-item w3-button"><font size="+1.3">Research Projects</font></a><br>
+                        <!--
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><font size="+1.3">Projects</font></a>
+                            <div class="dropdown-menu">
+                                <a href="projects.html" class="dropdown-item"><font size="+1.3">Research</font></a>
+                                <a href="posters.html" class="dropdown-item"><font size="+1.3">Playground</font></a>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
+                    <i class="fas fa-2x fa-angle-double-right text-primary"></i>
+                </div>
+        </div>
+        <div class="content">
+            <!-- Page Header Start -->
+            <div class="container py-5 px-2 bg-primary">
+                <div class="row py-5 px-4">
+                    <div class="col-sm-6 text-center text-md-left">
+                        <h1 class="mb-3 mb-md-0 text-white font-weight-bold" style="font-family: Candara">Planning and Optimization of Cardiac Surgery</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+            <!-- Blog Detail Start -->
+            <div class="container py-5 px-2 bg-white">
+                <div class="row px-4">
+                    <div class="col-12">
+                        <h2 class="mb-3 font-weight-bold" style="font-family: Optima">Automatic Optimization of Patient Specific Graft Design</h2>
+                        <p style="font-family: Times"><font size="+0.7">
+                            The ideal shape of cardiovascular graft is highly patient specific for optimal hemodynamic performance. 
+                            As manual design optimization involves time consuming trial-and-error process to achieve suboptimal hemodynamic performance, 
+                            automatic design optimization of patient-specific graft is an interesting topic for clinical need.
+                            In this study we tried to speed up the process while preserving best simulation fidelity and expending parameter space.
+                            </font></p>
+                        <h3 class="mb-3 font-weight-bold" style="font-family: Optima">Simulations for Automatic Optimization</h3>
+                        <p style="font-family: Times"><font size="+0.7">
+                            My contribution for this part is to build fully automated simulation system that can seamlessly integrate with optimization algorithms. 
+                            A fully automated system for hemodynamic simulation was established using OpenFOAM, including meshing, computing and postprocessing. 
+                            Besides, a FEA system for vessel deformation is built using FEBio, for the optimization of cutting line and patch shape in patch-repair surgery. 
+                            </font></p>
+                        <img class="img-fluid mb-4" src="img/sur_simu.jpeg" alt="Image">
+                        <p style="font-family: Times; text-align:center"><font size="+0.4">
+                            Figure: Left: CFD of Coarctation of Aorta without repair; Right: FEA of vessel deformation during patch repair surgery.
+                        <br></font></p>
+                        <h3 class="mb-3 font-weight-bold" style="font-family: Optima">VAE for Design Space Reduction</h3>
+                        <p style="font-family: Times"><font size="+0.7">
+                            One impede of fast optimization is that high fidelity pulsatile simulation takes time. 
+                            To reduce the dimension of parameter, a variational autoencoder would be tried to compress planning space into a more efficient latent space. 
+                            After training VAE on generated dataset with geometrical constraints, the optimizer would directly change the value in latent space to proceed iterations.
+                            </font></p>
+                        <img class="img-fluid mb-4" src="img/sur_VAE.jpeg" alt="Image">
+                        <p style="font-family: Times; text-align:center"><font size="+0.4">
+                            Figure: Schematic description of the role of VAE in the optimization process.
+                        <br></font></p>
+                        <p><br><br><br><br><br><br></p>
+                    </div>
+                </div>
+                <div class="row px-4">
+                    <div class="col-12">
+                        <h2 class="mb-3 font-weight-bold" style="font-family: Optima">Data Driven Study on Tissue Growth of TEVG</h2>
+                        <p style="font-family: Times"><font size="+0.7">
+                            Grafts in current surgical process do not grow with child patients and thus revision or replacement is required. 
+                            Tissue engineered vascular grafts (TEVGs) let the patient’s own cells proliferate and provide physiologic functionality and growth over time. 
+                            But the growth pattern and rate are subject to local hemodynamics, which would affect the long term effect of the graft. 
+                            This study aims to find the relationship between tissue growth on TEVG and local hemodynamics.
+                            </font></p>
+                        <img class="img-fluid mb-4" src="img/sur_tissue_growth.png" alt="Image">
+                        <p style="font-family: Times; text-align:center"><font size="+0.4">
+                            Figure: Framework for tissue growth analysis. (a) Reconstruction of post-operation and follow-up anatomy; (b) Deformable registration and tissue stretch calculation; (c) Tissue growth map; (d) Unfolded vessel wall to 2D domain; (e)Tissue growth analysis in comparison with WSS (Regression, Windowing and Convolution, Mutual Information)
+                        </font></p>
+                        <h3 class="mb-3 font-weight-bold" style="font-family: Optima">Mapping 3D Wall Shear Stress to 2D</h3>
+                        <p style="font-family: Times"><font size="+0.7">
+                            A bijective mapping from (x, y ,z) to (z, &theta;) is established as described in the above figure part (d), which allows pattern learning in 2D space.
+                            </font></p>
+                        <h3 class="mb-3 font-weight-bold" style="font-family: Optima">Deformable Registration</h3>
+                        <p style="font-family: Times"><font size="+0.7">
+                            The deformable registration is implemented onto post-operative and follow-up vessel geometries, 
+                            based on a distance map method with B-spline characterization. 
+                            Tissue growth would be calculated from the output transformation.
+                            </font></p>
+                        <img class="img-fluid mb-4" src="img/sur_registration.png" alt="Image">
+                        <p style="font-family: Times; text-align:center"><font size="+0.4">
+                            Figure: Example of registration between designed graft and post-operative geometry
+                        </font></p>
+                        <p><br><br><br><br><br><br></p>
+                    </div>
+                </div>
+                <!--
+                <div class="row px-4">
+                    <div class="col-12">
+                        <h2 class="mb-3 font-weight-bold" style="font-family: Optima">Investigating Fluid Dynamics of Novel Fontan Graft</h2>
+                        <img class="img-fluid mb-4" src="img/Sphyg00.jpg" alt="Image">
+                        <h3 class="mb-3 font-weight-bold" style="font-family: Optima">sub</h3>
+                        <img class="w-50 float-left mr-4 mb-3" src="img/MVF2.jpg" alt="Image">
+                        <p><br><br><br><br><br><br></p>
+                    </div>
+                </div>
+                -->
+                <div class="row px-4">
+                    <!-- boxed key words
+                    <div class="col-12 py-4">
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                        <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <!-- Blog Detail End -->
+                
+            <!-- Footer Start -->
+            <div class="container py-4 bg-secondary text-center">
+                <p class="m-0 text-white">
+                    &copy; <a class="text-white font-weight-bold" href="#">Wu,Qiyuan</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div>
+            <!-- Footer End -->
+        </div>
+    </div>
+        
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
