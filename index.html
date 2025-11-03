@@ -220,7 +220,7 @@
         /* --- Projects: title ABOVE cards (stacked layout) --- */
     #projects .container{
       grid-template-columns: 1fr;     /* collapse to single column */
-      max-width: 1100px;              /* widen the section; tweak 1000–1200px */
+      max-width: 1400px;              /* widen the section; tweak 1000–1200px */
     }
     
     #projects .section-left{
@@ -238,7 +238,7 @@
     #projects .project-card{
       width: 100%;
       max-width: 1100px;              /* match container width */
-      grid-template-columns: 460px 1fr; /* image | text; tweak 420–520px */
+      grid-template-columns: 560px 1fr; /* image | text; tweak 420–520px */
       gap: 1.25rem;
       padding: 1.25rem;
       border-radius: 14px;
@@ -423,17 +423,26 @@
     <div class="section-right">
       <!-- Project 1 -->
       <article class="project-card">
-        <img src="img/profile.png" alt="Point-of-care KS diagnostics platform" class="project-thumb" loading="lazy">
+        <img src="img/Balance.png" alt="Ultrasound-EMG Fusion for Muscle Archetecture and Balance Control" class="project-thumb" loading="lazy">
         <div class="project-body">
-          <h3 class="project-title">Point-of-Care LAMP Platform for Kaposi Sarcoma</h3>
+          <h3 class="project-title">Ultrasound-EMG Fusion for Muscle Archetecture and Balance Control</h3>
           <p class="project-summary">
-            Portable molecular diagnostic integrating isothermal amplification, thermal/optical control, and embedded analytics;
-            validated across ~1,000 patients in East Africa for rapid KS triage at primary clinics.
+            The ability to quantify how muscles coordinate to keep us upright is central to performance, rehabilitation, and fall-risk reduction. 
+            Today, balance assessment often depends on lab-bound force plates and clinician-dependent observations, while isolated EMG or dynamometry 
+            offer only partial views of the neuromuscular system. We built a portable ultrasound-EMG fusion system that continuously tracks muscle architecture 
+            (fascicle length and pennation changes) alongside electrical activation during both isometric and dynamic balance tasks. 
+            The platform combines real-time ultrasound processing with synchronized EMG to estimate joint torque trends and stability metrics 
+            without constraining range of motion or requiring force-plate instrumentation. In pilot human tests, the wearable setup captured contraction 
+            timing, fatigue-related shifts in activation–architecture coupling, and balance-relevant features (e.g., sway-induced fascicle dynamics) suitable for 
+            athlete monitoring and neuro-rehab progress tracking. This approach enables richer, in-field datasets for clinicians, coaches, and device makers, 
+            supporting more precise interventions and faster iteration cycles.
+            Skills: Ultrasound Imaging | Electromyography (EMG) | Sensor Fusion | Human-Subjects Testing | Biomechanics | Real-Time Signal Processing | Computer Vision (speckle/feature tracking) | Embedded/Edge Computing | Data Engineering (Python/MATLAB)
+
           </p>
           <div class="project-meta">
-            <a href="https://www.authorea.com/users/955785/articles/1324817-loop-mediated-isothermal-amplification-enables-reliable-kaposi-sarcoma-diagnosis-across-time-and-sites-in-east-africa" target="_blank" rel="noopener noreferrer" class="pill-link">Paper</a>
+            <!-- <a href="https://www.authorea.com/users/955785/articles/1324817-loop-mediated-isothermal-amplification-enables-reliable-kaposi-sarcoma-diagnosis-across-time-and-sites-in-east-africa" target="_blank" rel="noopener noreferrer" class="pill-link">Paper</a>
             <a href="#" class="pill-link">Slides</a>
-            <a href="#" class="pill-link">Code</a>
+            <a href="#" class="pill-link">Code</a> -->
           </div>
         </div>
       </article>
@@ -483,6 +492,7 @@
   
 </body>
 </html>
+
 
 
 
